@@ -12,11 +12,11 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
-  print(client.get_channel(os.getenv("CHANNEL_ID")))
-  channel = client.get_channel(os.getenv("CHANNEL_ID"))
+
+  channel = client.get_channel(int(os.getenv("CHANNEL_ID")))
 
   magnet_state = sys.argv[1];
 
-#   await channel.send(f"The club room is now {magnet_state}")
+  await channel.send(f"The club room is now {magnet_state}")
 
 client.run(os.getenv("TOKEN"))
